@@ -1,66 +1,53 @@
+#include <iostream>
+#include "Electric.h"
 #include "Magnetic.h"
-#include <cmath>
 
 using namespace std;
 
-Magnetic::Magnetic() : Field()
+int main()
 {
-}
+    // Electric objects
+    Electric E1;
+    Electric E2(100000, 10.9, 170);
 
-Magnetic::Magnetic(double x, double y, double z)
-    : Field(x, y, z)
-{
-}
+    E1.setX(250);
+    E1.setY(125);
+    E1.setZ(75);
 
-Magnetic::Magnetic(const Magnetic& other)
-    : Field(other)
-{
-}
+    Electric E3 = E1 + E2;
 
-double Magnetic::magnitude() const
-{
-    return sqrt(field[0] * field[0]
-              + field[1] * field[1]
-              + field[2] * field[2]);
-}
+    cout << "E1 = " << E1 << endl;
+    cout << "E2 = " << E2 << endl;
+    cout << "E3 = " << E3 << endl;
 
-void Magnetic::unitVector() const
-{
-    double mag = magnitude();
+    cout << "Magnitude of E2 = "
+         << E2.magnitude() << endl;
 
-    cout << "("
-         << field[0] / mag << ", "
-         << field[1] / mag << ", "
-         << field[2] / mag << ")";
-}
+    cout << "Inner Product of E2 = "
+         << E2.innerProduct() << endl;
 
-Magnetic Magnetic::operator+(const Magnetic& rhs)
-{
-    return Magnetic(
-        field[0] + rhs.field[0],
-        field[1] + rhs.field[1],
-        field[2] + rhs.field[2]
-    );
-}
+    cout << endl;
 
-Magnetic& Magnetic::operator=(const Magnetic& rhs)
-{
-    if (this != &rhs)
-    {
-        field[0] = rhs.field[0];
-        field[1] = rhs.field[1];
-        field[2] = rhs.field[2];
-    }
+    // Magnetic objects
+    Magnetic B1;
+    Magnetic B2(3.0, 4.0, 5.0);
 
-    return *this;
-}
+    B1.setX(5);
+    B1.setY(2);
+    B1.setZ(7);
 
-ostream& operator<<(ostream& out, const Magnetic& B)
-{
-    out << "("
-        << B.field[0] << ", "
-        << B.field[1] << ", "
-        << B.field[2] << ")";
+    Magnetic B3 = B1 + B2;
 
-    return out;
+    cout << "B1 = " << B1 << endl;
+    cout << "B2 = " << B2 << endl;
+    cout << "B3 = " << B3 << endl;
+
+    cout << "Magnitude of B2 = "
+         << B2.magnitude() << endl;
+
+    cout << "Unit Vector of B2 = ";
+    B2.unitVector();
+    cout << endl;
+
+    return 0;
 }
