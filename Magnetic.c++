@@ -58,7 +58,7 @@ Magnetic& Magnetic::operator=(const Magnetic& rhs)
 ostream& operator<<(ostream& out, const Magnetic& B)
 {
     out << "("
-        << B.field[0] << ", "
+        << B.field[0] << ", " 
         << B.field[1] << ", "
         << B.field[2] << ")";
 
