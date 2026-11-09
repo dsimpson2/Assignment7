@@ -45,7 +45,7 @@ int main()
     cout << "Magnitude of B2 = "
          << B2.magnitude() << endl;
 
-    cout << "Unit Vector of B2 = ";
+    cout << "Unit Vector of B2 = "; 
     B2.unitVector();
     cout << endl;
 
