@@ -27,7 +27,7 @@ int main()
          << E2.magnitude() << endl;
 
     cout << "Inner Product of E2 = "
-         << E2.innerProduct() << endl;
+         << E2.innerProduct() << endl; // Calculate the inner product (dot product) of E2 with itself, which is equivalent to the square of its magnitude.
 
     cout << endl;
 
@@ -42,12 +42,12 @@ int main()
     // Add the vectors, then display them and calculate properties of B2.
     Magnetic B3 = B1 + B2;
 
-    cout << "B1 = " << B1 << endl;
+    cout << "B1 = " << B1 << endl; 
     cout << "B2 = " << B2 << endl;
     cout << "B3 = " << B3 << endl;
 
     cout << "Magnitude of B2 = "
-         << B2.magnitude() << endl;
+         << B2.magnitude() << endl; // Calculate the magnitude of B2 using the Euclidean norm formula.
 
     // Print the unit vector in the direction of B2.
     cout << "Unit Vector of B2 = "; 
